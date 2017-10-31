@@ -1,0 +1,20 @@
+-- Supression des tables SQL
+DROP TABLE "ingredients_categories";
+DROP TABLE "ingredients_interdits_regime";
+DROP TABLE "ingredients_recette";
+DROP TABLE "ingredients_user";
+DROP TABLE "medias";
+DROP TABLE "planning";
+DROP TABLE "planning_archive";
+DROP TABLE "user_regime";
+DROP TABLE "regime";
+DROP TABLE "user_achat_ingredients";
+DROP TABLE "user_achat_ingredients_archive";
+DROP TABLE "etapes";
+DROP TABLE "ingredients";
+DROP TABLE "media_types";
+DROP TABLE "etape_types";
+DROP TABLE "categories_ingredients";
+DROP TABLE "unites";
+DROP TABLE "recettes";
+DROP TABLE "users";
