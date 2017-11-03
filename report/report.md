@@ -1,4 +1,4 @@
-# Introduction
+# Introduction
 
 Dans le cadre de l'UE de base de données et programmation web de la troisième
 année de licence d'informatique à l'Université de Strasbourg, il nous a été
@@ -13,7 +13,7 @@ modélisation et la conception à la réalisation même de la base de données.
 
 # Modélisation
 
-## Modèle entité-association
+## Modèle entité-association
 
 Voici le modèle entité-association de la base de données du site de recette de
 cuisine, qui respecte les besoins fonctionnels indiqués dans l'énoncé :
@@ -383,7 +383,8 @@ en-dehors de ce rapport.
 
 Il se peut que j'ai changé le nom de certains champs, changé le type de clé,
 ajouté des contraintes supplémentaires, ... directement dans le code par rapport
-à ce qui se trouve dans ce présent rapport. Veuillez vous référer au code.
+à ce qui se trouve dans ce présent rapport. Veuillez vous référer au code
+également.
 
 # Programmes utilisés
 
@@ -396,3 +397,6 @@ dans ce rapport car il y aurait des soucis de lisibilité sinon.
 
 Pour générer ce rapport, j'ai utilisé `pandoc` pour convertir mon rapport
 rédigé au format Markdown en latex, dans le but de l'exporter en pdf.
+
+Enfin, pour versionner ce projet et pouvoir avoir une archive très rapidement
+contenant tout mon travail, j'utilise `git`.

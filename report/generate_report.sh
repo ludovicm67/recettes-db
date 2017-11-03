@@ -1,8 +1,6 @@
 #!/bin/sh
 
-# script pour générer mon rapport
-# nécessite :
-#   - pandoc
+# script pour générer mon rapport (nécessite pandoc)
 
 pandoc --toc\
   -V geometry:left=2cm,right=2cm,top=4cm,bottom=2cm\
