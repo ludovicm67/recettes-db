@@ -42,7 +42,11 @@ Voici les champs que je considère utile pour cette table :
     du côté applicatif)
   - `display_name` : utile pour que l'utilisateur puisse personnaliser son
     nom d'affichage s'il le souhaite, avec son nom et prénom par exemple.
-    (peut être vide).
+    (peut être vide; pour les requêtes à faire, on admet que si ce champ est
+    renseigné, il contient le nom et le prénom de la personne).
+  - `localisation` : pour indiquer sa région, sa ville ou bien son adresse;
+    comme bon lui semble (peut être vide; surtout utile pour les requêtes par la
+    suite quand on souhaitera avoir l'`adresse` de l'utilisateur).
 
 Il se peut qu'on ait besoin d'ajouter un champ pour indiquer si le compte a déjà
 été activé ou non, ainsi que d'autres informations éventuels sur l'utilisateur;
@@ -219,7 +223,7 @@ Voici les contraintes d'intégrité que devront respecter le modèle :
 
 ### Table `users`
 
-  - `pseudo` doit être unique et non vide, longeur maximale : 20 caractères
+  - `pseudo` doit être unique et non vide, longeur maximale : 25 caractères
   - `mail` doit être unique et non vide, doit contenir le caractère suivant :
     `@`, précédé et suivi d'au moins un caractère. (on pourrait pousser ceci
     beaucoup plus loin, mais je préfère effectuer ces vérifications côtés
@@ -229,7 +233,8 @@ Voici les contraintes d'intégrité que devront respecter le modèle :
 ### Table `unites`
 
   - `nom` doit être unique et non vide
-  - `symbol` doit être unique et non vide
+  - `symbol` doit être unique, mais peut être vide (cas des ingrédients pris par
+    unité)
 
 ### Table `ingredients`
 
@@ -251,7 +256,8 @@ Voici les contraintes d'intégrité que devront respecter le modèle :
 
 ### Table `recettes`
 
-  - `nom` doit être unique et non vide
+  - `nom` doit être non vide (pas forcément unique, car plusieurs manière de
+    faire la même recette)
   - `difficulte` un entier compris entre 1 et 5
   - `prix` un entier compris entre 1 et 5
   - `nbre_personnes` un entier strictement positif
@@ -259,7 +265,8 @@ Voici les contraintes d'intégrité que devront respecter le modèle :
   - `calories` doit être supérieur ou égal à zéro
   - `lipides` doit être supérieur ou égal à zéro
   - `glucides` doit être supérieur ou égal à zéro
-  - `glucides_dont_sucres` doit être supérieur ou égal à zéro
+  - `glucides_dont_sucres` doit être supérieur ou égal à zéro et inférieur ou
+    égal à la valeur du champ `glucides`
   - `protides` doit être supérieur ou égal à zéro
 
 ### Table `etapes`
@@ -330,6 +337,11 @@ table `unite`, et une unité est utilisée par 0 à n ingrédients. Il faut donc
 créer une référence dans la table `ingredients` qui pointe vers le champ `id`
 de la table `unite`.
 
+Un ingrédient est ajouté par un seul et unique utilisateur, et un utilisateur
+peut ajouter de 0 à n ingrédients; c'est donc la raison pour laquelle j'ai
+ajouté un champ `auteur` à la table `ingredients` qui pointe vers le champ `id`
+de la table `users`, dans le but d'identifier l'auteur de l'ingrédient.
+
 Chaque utilisateur peut avoir 0 à n ingrédients chez lui, et un ungrédient peut
 être possédé par 0 à n utilisateurs; je créé donc une table de jonction
 `ingredients_user`, avec les références vers les `id` de l'utilisateur et
@@ -367,10 +379,20 @@ en-dehors de ce rapport.
 
 \newpage
 
+# Précisions
+
+Il se peut que j'ai changé le nom de certains champs, changé le type de clé,
+ajouté des contraintes supplémentaires, ... directement dans le code par rapport
+à ce qui se trouve dans ce présent rapport. Veuillez vous référer au code.
+
 # Programmes utilisés
 
 Pour illustrer proprement mes modèles, j'ai pris la décision d'utiliser 
 [JMerise](http://www.jfreesoft.com/JMerise/).
+
+J'ai également utilisé [DBDesigner](http://dbdesigner.net) pour avoir un schéma
+plus complet, qui se trouve dans le dossier `images`. Je ne l'ai pas joint
+dans ce rapport car il y aurait des soucis de lisibilité sinon.
 
 Pour générer ce rapport, j'ai utilisé `pandoc` pour convertir mon rapport
 rédigé au format Markdown en latex, dans le but de l'exporter en pdf.
