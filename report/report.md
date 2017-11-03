@@ -1,3 +1,5 @@
+<!-- \newpage -->
+
 # Introduction
 
 Dans le cadre de l'UE de base de données et programmation web de la troisième
@@ -9,7 +11,13 @@ enregistrés, recettes, ingrédients, ...) ainsi que le site à proprement parle
 Ce présent rapport concerne uniquement la première partie de ce travail : de la
 modélisation et la conception à la réalisation même de la base de données.
 
-\newpage
+Ce travail est le fruit d'un nombre d'heure très important. Tout est documenté,
+commenté et justifié, j'espère que vous prendrez également votre temps pour bien
+lire l'ensemble, ce qui serait la plus belle reconnaîssance pour ce travail.
+
+Bonne lecture !
+
+<!-- \newpage -->
 
 # Modélisation
 
@@ -214,7 +222,7 @@ Elle nécessite les champs suivants :
   - `is_video` : un boolean; si `true` (ou `1`), alors il s'agit d'une vidéo,
     sinon il s'agirait plutôt d'une photo.
 
-\newpage
+<!-- \newpage -->
 
 ## Contraintes d'intégrité
 
@@ -287,7 +295,7 @@ Voici les contraintes d'intégrité que devront respecter le modèle :
 
   - `nom` doit être unique et non vide
 
-\newpage
+<!-- \newpage -->
 
 ## Liens entre les tables
 
@@ -361,7 +369,7 @@ nombre d'ingrédients, tout comme un ingrédient peut être interdit par 0 à n
 régimes; je créé donc une table de jonction `ingredients_interdits_regime`, avec
 les références vers le régime et l'ingrédient.
 
-\newpage
+<!-- \newpage -->
 
 ## Modèle logique relationnel
 
@@ -377,7 +385,7 @@ dossier `images` de l'archive. Cependant, du fait qu'il soit trop large et
 version que vous voyez là, et laissé en libre consultation l'autre modèle
 en-dehors de ce rapport.
 
-\newpage
+<!-- \newpage -->
 
 # Précisions
 
