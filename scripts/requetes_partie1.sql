@@ -88,6 +88,7 @@ SELECT u."pseudo"
 SELECT
   "pseudo",
   "display_name" AS "nom / prénom",
+  "mail" AS "adresse mail",
   "localisation" AS "adresse",
   (SELECT COUNT("id")
     FROM "recettes"

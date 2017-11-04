@@ -22,10 +22,10 @@ CREATE TABLE "recettes" (
 	"nbre_personnes" int NOT NULL,
 	"duree_totale" int NOT NULL,
 	"calories" int NOT NULL,
-	"lipides" decimal NOT NULL,
-	"glucides" decimal NOT NULL,
-	"glucides_dont_sucres" decimal NOT NULL,
-	"protides" decimal NOT NULL,
+	"lipides" decimal(10, 10) NOT NULL,
+	"glucides" decimal(10, 10) NOT NULL,
+	"glucides_dont_sucres" decimal(10, 10) NOT NULL,
+	"protides" decimal(10, 10) NOT NULL,
 	CONSTRAINT RECETTES_PK PRIMARY KEY ("id"),
 	CONSTRAINT RECETTES_DIFF_CK CHECK ("difficulte" BETWEEN 1 AND 5),
 	CONSTRAINT RECETTES_PRIX_CK CHECK ("prix" BETWEEN 1 AND 5),
@@ -55,10 +55,10 @@ CREATE TABLE "ingredients" (
 	"nom" varchar2(255) NOT NULL,
 	"auteur" int NOT NULL,
 	"calories" int NOT NULL,
-	"lipides" decimal NOT NULL,
-	"glucides" decimal NOT NULL,
-	"glucides_dont_sucres" decimal NOT NULL,
-	"protides" decimal NOT NULL,
+	"lipides" decimal(10, 10) NOT NULL,
+	"glucides" decimal(10, 10) NOT NULL,
+	"glucides_dont_sucres" decimal(10, 10) NOT NULL,
+	"protides" decimal(10, 10) NOT NULL,
 	"unite" int NOT NULL,
 	"dispo_par_defaut" number(1) DEFAULT 0 NOT NULL,
 	"popularite" int NOT NULL,
@@ -103,7 +103,7 @@ CREATE TABLE "ingredients_interdits_regime" (
 CREATE TABLE "ingredients_recette" (
 	"recette" int NOT NULL,
 	"ingredient" int NOT NULL,
-	"quantite" decimal NOT NULL,
+	"quantite" decimal(10, 10) NOT NULL,
 	CONSTRAINT INGREDIENTS_RECETTE_PK PRIMARY KEY ("recette","ingredient"),
 	CONSTRAINT INGRRECET_QTE_CK CHECK ("quantite" >= 0)
 );
@@ -151,7 +151,7 @@ CREATE TABLE "media_types" (
 CREATE TABLE "ingredients_user" (
 	"user" int NOT NULL,
 	"ingredient" int NOT NULL,
-	"quantite" decimal NOT NULL,
+	"quantite" decimal(10, 10) NOT NULL,
 	CONSTRAINT INGREDIENTS_USER_PK PRIMARY KEY ("user","ingredient"),
 	CONSTRAINT INGRUSR_QTE_CK CHECK ("quantite" >= 0)
 );
@@ -176,7 +176,7 @@ CREATE TABLE "planning_archive" (
 CREATE TABLE "user_achat_ingredients" (
 	"user" int NOT NULL,
 	"ingredient" int NOT NULL,
-	"quantite" decimal NOT NULL,
+	"quantite" decimal(10, 10) NOT NULL,
 	"date" date NOT NULL,
 	CONSTRAINT USER_ACHAT_INGR_PK PRIMARY KEY ("user","ingredient"),
 	CONSTRAINT USRACHAT_QTE_CK CHECK ("quantite" >= 0)
@@ -186,7 +186,7 @@ CREATE TABLE "user_achat_ingredients" (
 CREATE TABLE "user_achat_ingredients_archive" (
 	"user" int NOT NULL,
 	"ingredient" int NOT NULL,
-	"quantite" decimal NOT NULL,
+	"quantite" decimal(10, 10) NOT NULL,
 	"date" date NOT NULL,
 	CONSTRAINT USER_ACHAT_INGR_ARCHIVE_PK PRIMARY KEY ("user","ingredient"),
 	CONSTRAINT USRACHAT_A_QTE_CK CHECK ("quantite" >= 0)
