@@ -77,3 +77,5 @@ Sinon voici ce que font les différents scripts :
     requêtes SQL demandées pour la partie 1 du projet. A lancer après avoir créé
     les différentes tables et avoir inséré les données. (des justifications et
     précisions sont en commentaires dans le fichier, veuillez les consulter).
+  - [`partie_plsql.sql`](/scripts/partie_plsql.sql) : toutes les fonctions,
+    procédures, triggers, ... en PL/SQL.
